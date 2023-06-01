@@ -39,37 +39,22 @@ def input_contact(massage: str, cancel: str) -> dict:
         data = input(value)
         if data:
             contact[key] = data
-            print(contact)
+            #print(contact)
         else:
             print_message(text.cancel_input)
     return contact
 
-#удалить контакт и изменить контакт
+#удалить контакт 
+
 
 def input_index(message: str, pb: list, error: str):
     print_contact(pb, error)
     while True:
         index = input(message)
         if index.isdigit and 0 < int(index) < len(pb) + 1:
-            print(index)
             return int(index)
         
 
-# #изменить контакт
-# def input_contact(massage: str, cancel: str) -> dict:
-#     contact = {}
-#     print(massage)
-#     for key, value in text.input_contact.items():
-#     #     contact[key] = input(value)
-#     # return contact
-#         data = input(value)
-#         if data:
-#             contact[key] = data
-#         else:
-#             print_message(text.cancel_input)
-#     return contact
-
-#найти контакт
 
 def input_find_contact():
     message = input(text.find_contact_info)
