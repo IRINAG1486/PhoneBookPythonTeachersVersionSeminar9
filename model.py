@@ -7,12 +7,12 @@ def open_pb():
     global phone_book, path
     with open(path, 'r', encoding='UTF-8') as file:
         data = file.readlines()
-        print(data)
+        #print(data)
     for contact in data:
         contact = contact.strip().split(':')
         phone_book.append({'name':contact[0], 'phone':contact[1], 'comment':contact[2]})
             #phone_book.append(contact)
-    print(phone_book)
+    #print(phone_book)
 
 
 #3 показать контакт
@@ -47,7 +47,7 @@ def find_contact(pb: list[dict[str, str]], message: str, error: str):
     data: list[dict[str, str]] = []
     for contact in phone_book:
         for value in contact.values():
-            if message in value:
+            if message.lower() in value.lower():
                 data.append(contact)
                 #print(data)
                 return data
@@ -58,34 +58,16 @@ def find_contact(pb: list[dict[str, str]], message: str, error: str):
 
 
 #изменить контакт
-def change_contact(index, dict_contact: dict[str, str]):
+def change_contact(info_contact, dict_contact: dict[str, str], error):
     global phone_book, path
-    print(dict_contact)
+    #print(dict_contact)
     for contact in phone_book:
-        if index == contact.get(id):
-        
-            # contact['name'] = dict_contact.get('name', contact.get('name'))
-            # contact['phone'] = dict_contact.get('phone', contact.get('phone'))
-            # contact['comment'] = dict_contact.get('comment', contact.get('comment'))
-            # print(contact.get('name')) 
-            # print(contact.get('phone'))
-            # print(contact.get('comment'))
-            # print(contact['name']) 
-            # print(contact['phone'])
-            # print(contact['comment'])
-            #print(contact.get(id))
-    print(contact)
-    print(index)
-    
-        #     name = dict_contact.get('name')
-        #     phone = dict_contact.get('phone')
-        #     comment = dict_contact.get('comment')
-        # print(name)
-        # print(phone)
-        # print(comment)
-            # contact['name'] = dict_contact.get('name', contact.get('name'))
-            # contact['phone'] = dict_contact.get('phone')
-            # contact['comment'] = dict_contact.get('comment')
-            
-    #return(pb)
-    
+        for value in contact.values():
+            if info_contact.lower() in value.lower():
+                contact['name'] = dict_contact.get('name')
+                contact['phone'] = dict_contact.get('phone')
+                contact['comment'] = dict_contact.get('comment')
+            else:
+                error
+    return phone_book
+               
