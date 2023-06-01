@@ -44,11 +44,15 @@ def del_contact(name: str):
 
 index_change_contact = 'Введите индекс контакта, который хотите изменить: '
 
-def change_contact(name: str):
-    return f'Контакт {name} успешно изменен'
+change_pb = 'Телефонная книга успешно изменена'
+
+#def change_contact(name: str):
+    # return f'Контакт {name} успешно изменен'
 
 #найти контакт
 
-find_contact_info = 'Введите данные контакта для поиска: имя, телефон или комментарий: '
+find_contact_info = 'Введите имя, телефон или комментарий для контакта, который необходимо найти: '
 
 find_contact_error = 'Контакт не найден'
+
+close_pb = 'Работа с телефонной книгой завершена'
